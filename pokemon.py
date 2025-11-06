@@ -1,7 +1,6 @@
 import random
 import os
 
-# ----- Classe Pokemon -----
 class Pokemon:
     def __init__(self, nome: str, velocidade: int):
         self.nome = nome
@@ -10,7 +9,6 @@ class Pokemon:
     def __str__(self):
         return f"{self.nome} (Vel: {self.velocidade})"
 
-# ----- Classe MaxHeap -----
 class MaxHeap:
     def __init__(self):
         self.data = []
@@ -71,7 +69,6 @@ class MaxHeap:
     def __str__(self):
         return "[" + ", ".join(str(p) for p in self.data) + "]"
 
-# ----- Lista de pokemons disponíveis -----
 disponiveis = [
     Pokemon("Pikachu", 90),
     Pokemon("Charizard", 100),
@@ -92,7 +89,6 @@ disponiveis = [
 meus_pokemons = []
 inimigo_pokemons = []
 
-# ----- Funções utilitárias -----
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -193,7 +189,6 @@ def executar_turno():
 
         rodada += 1
 
-    # 🔹 Montar Max-Heap com *todos* que participaram (meus + inimigos)
     todos_participantes = meus_pokemons + inimigo_pokemons
     heap = MaxHeap()
     heap.build_heap(todos_participantes)
@@ -204,7 +199,6 @@ def executar_turno():
     print("\nVisualização por níveis:")
     print(heap.pretty_levels())
 
-    # Reinicia equipes
     meus_pokemons = []
     inimigo_pokemons = []
 
